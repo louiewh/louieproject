@@ -30,7 +30,7 @@ set sidescroll=10	                             "屏幕放不下时，按一次�
 set whichwrap=b,s,<,>,[,]	                     "跨行移动
 set fileformats=unix,dos
 set cursorline                                   "突出显示当前行
-set autochdir                                    "自动切换当前目录为当前文件所在的目录
+"set autochdir                                    "自动切换当前目录为当前文件所在的目录
 set showmatch                                    "插入括号时，短暂地跳转到匹配的对应括号
 set matchtime=2                                  "短暂跳转到匹配括号的时间
 set smartindent                                  "开启新行时使用智能自动缩进
@@ -40,15 +40,14 @@ vmap <C-c> "+y                                   "选中状态下 Ctrl+c 复制
 nmap <C-c> "+yy                                  "选中状态下 Ctrl+c 复制
 nmap <C-v> "+p                                   "正常模式下粘贴
 nmap <C-a> ggvG                                  "正常模式下全选
-vmap <C-x> dd<Esc>                                  "正常模式下全选
-
-func! SaveFile()     
-     exec "w" 
-endfunc  
+vmap <C-x> dd<Esc>                               "正常模式下DEL
 
 nmap <leader>s :call SaveFile()<CR> 
 imap <leader>s <ESC>:call SaveFile()<CR> 
 vmap <leader>s <ESC>:call SaveFile()<CR> 
+func! SaveFile()     
+     exec "w" 
+endfunc  
 
 "set clipboard+=unnamed                          "与windows共享剪贴板 
 "set pastetoggle=<F4>
@@ -205,16 +204,16 @@ set foldlevel=3                                        "置折叠层级
 
 "========================Tag Lisg(ctags)=============================
 "au BufWritePost *c,*cpp,*h !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
-map <F8> :TlistToggle<CR>
-let Tlist_Ctags_Cmd = 'ctags'
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_WinWidth = 20
-set tags=tags,./tags,/usr/include/tags,../tags
+"map <F8> :TlistToggle<CR>
+"let Tlist_Ctags_Cmd = 'ctags'
+"let Tlist_Show_One_File = 1
+"let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Use_Right_Window = 1
+"let Tlist_WinWidth = 20
+"set tags=tags,./tags,/usr/include/tags,../tags
 
-let Tlist_File_Fold_Auto_Close=1        "自动折叠当前非编辑文件的方法列表
-let Tlist_Auto_Update = 1
+"let Tlist_File_Fold_Auto_Close=1        "自动折叠当前非编辑文件的方法列表
+"let Tlist_Auto_Update = 1
 "let Tlist_Auto_Open = 1
 "let Tlist_Hightlight_Tag_On_BufEnter = 1
 "let Tlist_Enable_Fold_Column =0
@@ -240,7 +239,7 @@ nmap <F10> :TagbarToggle<CR>
 "" winManager setting
 """""""""""""""""""""""""""""""
 "let g:winManagerWindowLayout = "FileExplorer|TagList"
-let g:winManagerWindowLayout = "NERDTree|BufExplorer|TagList"
+"let g:winManagerWindowLayout = "NERDTree|BufExplorer|TagList"
 "let g:winManagerWidth = 30
 "nmap wm :WMToggle<CR>  
 "nmap <silent> <F8> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR><CR>
@@ -275,10 +274,10 @@ endfunction
 
 "=====================powerline==================="
 "powerline{ 
-"set guifont=PowerlineSymbols\ for\ Powerline 
-"set nocompatible 
+set guifont=PowerlineSymbols\ for\ Powerline 
+set nocompatible 
 "set t_Co=256 
-"let g:Powerline_symbols = 'fancy' 
+let g:Powerline_symbols = 'fancy' 
 "} 
 
 
