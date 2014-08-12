@@ -159,6 +159,7 @@ filetype plugin indent on                                     "自动识别文�
 "map <F8> :cclose<CR>
 "map <F9> :TlistToggle<CR>
 "map <F2> GoDate: <Esc>:read !date<CR>kJ
+map <silent> <F7> :!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle3
 
 "plugin shortcuts
 function! RunShell(Msg, Shell)                                                                                                                               
@@ -233,7 +234,7 @@ set foldlevel=3                                        "置折叠层级
 "let Tlist_Inc_Winwidth=0
 
 """"""""""""""""""""""""""""""""""""""
-nmap <F10> :TagbarToggle<CR> 
+nnoremap <silent> <F9> :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""
 "" winManager setting
@@ -386,19 +387,19 @@ call vundle#rc()
 	" vim-scripts repos
 	"Bundle 'minibufexpl.vim'
 	Bundle 'bufexplorer.zip'
-	Bundle 'taglist.vim'
-	Bundle 'c.vim'
+	"Bundle 'taglist.vim'
+	"Bundle 'c.vim'
 	Bundle 'cscope.vim'
-	Bundle 'winmanager'
+	"Bundle 'winmanager'
 	Bundle 'The-NERD-Commenter'
 	Bundle 'snipMate'
 	Bundle 'The-NERD-tree'
 	Bundle 'TxtBrowser'
 	Bundle 'Tagbar'
-	Bundle 'lookupfile'
 	Bundle 'genutils'
 	Bundle 'ctrlp.vim'
-	Bundle 'LeaderF'
+	"Bundle 'lookupfile'
+	"Bundle 'LeaderF'
 
     "github repos.
 	"Bundle 'fholgado/minibufexpl.vim'
@@ -407,7 +408,7 @@ call vundle#rc()
 	Bundle 'ervandew/supertab'
 	Bundle 'simplyzhao/cscope_maps.vim'
 	Bundle 'vim-scripts/EasyGrep'
-	Bundle 'bling/vim-airline'
+	"Bundle 'bling/vim-airline'
 	
 	"file repos or git repos
 	"Bundle 'git://git.wincent.com/command-t.git'
