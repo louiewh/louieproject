@@ -159,6 +159,7 @@ filetype plugin indent on                                     "自动识别文�
 "map <F8> :cclose<CR>
 "map <F9> :TlistToggle<CR>
 "map <F2> GoDate: <Esc>:read !date<CR>kJ
+map <F6>  :!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle<CR>  :source ~/.vimrc<CR> :BundleInstall!
 
 "plugin shortcuts
 function! RunShell(Msg, Shell)                                                                                                                               
