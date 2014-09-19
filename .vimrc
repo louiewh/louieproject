@@ -159,8 +159,8 @@ filetype plugin indent on                                     "自动识别文�
 "map <F8> :cclose<CR>
 "map <F9> :TlistToggle<CR>
 "map <F2> GoDate: <Esc>:read !date<CR>kJ
-map <silent> <F7> :!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle3
-
+map <silent> <F7> :!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+autocmd BufWritePre * :%s/\s+\+$//e
 "plugin shortcuts
 function! RunShell(Msg, Shell)                                                                                                                               
 	echo a:Msg . '...'
