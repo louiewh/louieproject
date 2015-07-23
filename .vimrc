@@ -1,13 +1,13 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"louie VIM 的配置文件             
+"louie VIM 的配置文件
 "
-"Change date: 2014.05.15      
+"Change date: 2014.05.15
 "
-"Email  louie.wang.g@gmail.com      
+"Email  louie.wang.g@gmail.com
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""Common Setting""""""""""""
-syn on                                           "语法高亮 
+syn on                                           "语法高亮
 set helplang=cn                                  "使用中文帮助文档
 set backspace=2
 set tabstop=4                                    "制表符的宽度
@@ -26,7 +26,7 @@ set cmdheight=1                                  "设定命令行的行数为 1
 set laststatus=2                                 "显示状态栏 (默认值为 1, 无法显示状态栏)
 set incsearch                                    "在输入搜索的字符串同时就开始搜索已经输入的部分
 set nowrap                                       "一行就一行，别弄到第二行去
-set sidescroll=10                                "屏幕放不下时，按一次屏幕移动一个字符  
+set sidescroll=10                                "屏幕放不下时，按一次屏幕移动一个字符
 set whichwrap=b,s,<,>,[,]                        "跨行移动
 set fileformats=unix,dos
 set cursorline                                   "突出显示当前行
@@ -43,32 +43,32 @@ nmap <C-v> "+p                                   "正常模式下粘贴
 nmap <C-a> ggvG                                  "正常模式下全选
 vmap <C-x> dd<Esc>                               "正常模式下DEL
 
-nmap <leader>s :call SaveFile()<CR> 
-imap <leader>s <ESC>:call SaveFile()<CR> 
-vmap <leader>s <ESC>:call SaveFile()<CR> 
-func! SaveFile()     
-     exec "w" 
-endfunc  
+nmap <leader>s :call SaveFile()<CR>
+imap <leader>s <ESC>:call SaveFile()<CR>
+vmap <leader>s <ESC>:call SaveFile()<CR>
+func! SaveFile()
+     exec "w"
+endfunc
 
 "set pastetoggle=<F4>
-"set clipboard+=unnamed                           "与windows共享剪贴板 
-"source $VIMRUNTIME/mswin.vim  
-"behave mswin                                     "兼容windows下的快捷键  
-"set selection=exclusive                          "使用鼠标（类似office中 ->  
-"set selectmode=mouse,key                         "在工作区双击鼠标定位）  
+"set clipboard+=unnamed                           "与windows共享剪贴板
+"source $VIMRUNTIME/mswin.vim
+"behave mswin                                     "兼容windows下的快捷键
+"set selection=exclusive                          "使用鼠标（类似office中 ->
+"set selectmode=mouse,key                         "在工作区双击鼠标定位）
 "
 "=========================GUI setting========================
-if has("gui_running") 
-    set guioptions-=m " 隐藏菜单栏 
-    set guioptions-=T " 隐藏工具栏 
-    set guioptions-=L " 隐藏左侧滚动条 
-    set guioptions-=r " 隐藏右侧滚动条 
-    set guioptions-=b " 隐藏底部滚动条 
-    set showtabline=0 " 隐藏Tab栏 
+if has("gui_running")
+    set guioptions-=m " 隐藏菜单栏
+    set guioptions-=T " 隐藏工具栏
+    set guioptions-=L " 隐藏左侧滚动条
+    set guioptions-=r " 隐藏右侧滚动条
+    set guioptions-=b " 隐藏底部滚动条
+    set showtabline=0 " 隐藏Tab栏
     set guifont=Consolas:h12
     "set guifontwide=Microsoft\ Yahei:h12
     "colorscheme desert
-endif 
+endif
 
 
 "记忆上次打开文件的位置
@@ -77,12 +77,13 @@ if has("autocmd")
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" |
 endif
 
-autocmd BufWritePre * :%s/\s+\+$//e
+"行末：$   行首：^  空格：\s  行末空格：\s+$  行首空格：^\+\s
+autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre *.java  :%retab!
 set autochdir
 set tags=tags;
 
-set whichwrap+=<,>,h,l                                                                             "允许backspace和光标键跨越行边界   
+set whichwrap+=<,>,h,l                                                                             "允许backspace和光标键跨越行边界
 set fileencodings=ucs-bom,utf-8,GB18030,GBK,GB2312                                                 "字符编码支持中文
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\           "设置在状态行显示的信息
 
@@ -174,14 +175,14 @@ let g:NERDTreeWinPos="left"
 let g:NERDTreeWinSize=25
 let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeQuitOnOpen=0
-let g:NERDTree_title="[NERDTree]"  
-  
-function! NERDTree_Start()  
-    exec 'NERDTree'  
-endfunction  
-  
-function! NERDTree_IsValid()  
-    return 1  
+let g:NERDTree_title="[NERDTree]"
+
+function! NERDTree_Start()
+    exec 'NERDTree'
+endfunction
+
+function! NERDTree_IsValid()
+    return 1
 endfunction
 "============================END NERDTree.vim=========================
 
@@ -196,6 +197,11 @@ let g:tagbar_width=30
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 "============================END TagBar.vim=========================
 
+
+"""""""""""""""""""""""""""EasyGrep"""""""""""""""""""""""""""
+let EasyGrepWindow=1
+let EasyGrepWindowPosition="botright"
+"""""""""""""""""""""""""""EasyGrep End"""""""""""""""""""""""
 
 """""""""""""""""""""""""""ctrlp"""""""""""""""""""""""""""
 let g:ctrlp_working_path_mode = 'ra'
@@ -229,8 +235,8 @@ let g:nodejs_complete_config = {
             \}
 
 
-filetype plugin on   
-autocmd FileType python set omnifunc=pythoncomplete#Complete   
+filetype plugin on
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 """""""""""""""""""""""""""""""""""VUNDLE setting"""""""""""""""""""""""""""""""""""""""""""
 map <silent> <F7> :!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -294,5 +300,6 @@ call vundle#rc()
     " see :h vundle for more details or wiki for FAQ
     " NOTE: comments after Bundle command are not allowed..
 
-""""""""""""""""""""""""END VUNDLE""""""""""""""""""""""""""    
+""""""""""""""""""""""""END VUNDLE""""""""""""""""""""""""""
 "
+
