@@ -1,3 +1,0 @@
-/home/louie/github/ClionProject/CppLession/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/louie/github/ClionProject/CppLession/cmake-build-debug/CMakeFiles/CppLession.dir
-/home/louie/github/ClionProject/CppLession/cmake-build-debug/CMakeFiles/edit_cache.dir
